@@ -5,8 +5,7 @@ class User2 {
   int get money => _money;
 
   set money(int? value) {
-  _money = money == null ? 0 : money;
-    
+    _money = money == null ? 0 : money;
   }
 
   final int? age;
@@ -15,5 +14,11 @@ class User2 {
 
   User2(this.name, this._money, {this.age, this.city}) {
     userCode = (city ?? 'ist') + name;
+  }
+}
+
+extension User2ControlExtension on User2 {
+  void controlName() {
+    print(name);
   }
 }
