@@ -1,3 +1,6 @@
+import 'model/user_model.dart';
+import 'model/user_model2.dart';
+
 void main() {
   // müşteri adı,parası,yaşı, ,,...
 
@@ -59,13 +62,48 @@ void main() {
         : true; //bunun anlamı null ise false değilse true
     print(result);
   }
+
+  print('-------------------------' * 10);
+  int customermoney = 15;
+  User user1 = User('vb', 14, age: 21, city: 'erzurum', id: '1');
+  User user2 = User('vb2', 18, id: '2');
+  final user3 = User('aa', 159, age: 13, id: '12');
+  print(user1.name);
+
+  // müşteri son gelen kişini city sine göre kampanya yapacak
+
+  if (user3.city == null) {
+    print('müşteri şehir bilgisini vememiş');
+    print(user3.userCode);
+  } else {
+    if (user3.city!.isEmpty) {
+      print('okokok');
+    }
+
+    if (user3.city == 'istanbul') {
+      print('tebrikler kampanya kaznadınız');
+    }
+  }
+
+  // müşteri id 1 ,2  olana indirim yap
+
+  if (user3.isSpecialUser('12')) {
+    user3.money += 5;
+    print('para eklendi');
+  }
+
+  User2 newUser2 = User2('vb', 15);
+  newUser2.money +=
+      5; // burda money  nin final ını kaldırık burada hata almadık
+  newUser2.money = null;
+
+  print(newUser2.toString());
 }
 
 int? controlMoney(int? money) {
   if (money != null && money > 0) {
     return money;
-  } /* else {
-      return null;
+  } /* else {              return null;
     }*/ //burda bir daha return null dememize gerek yoktur zaten olmadığında bize null verir
 }
 
@@ -76,15 +114,3 @@ void controlCustomerAge(int value) {
     print('alışveriş yapamazsın');
   }
 }
-
-class User {
-  // özellikleri tanımmlayalım
-
-  String?
-      name; // hiçbir nesneyi başı boş tanımlanamaz dartta ne olduğunu belirtmemiz gererkir!!!!!
-  int? money;
-  int? age;
-  String? city;
-}
-
-// 3.23.22 class a daha yeni geçti 
