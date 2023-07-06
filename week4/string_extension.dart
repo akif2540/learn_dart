@@ -12,4 +12,5 @@ extension StringUserCheckExtension on String? {
   bool isAdmin() {
     return (this ?? '').toLowerCase() == 'admin'.toLowerCase();
   }
+  
 }
